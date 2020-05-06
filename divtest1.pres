@@ -1,0 +1,1 @@
+forall x(((exists y(2y = x) and 2 | x) or (not exists y(2y = x) and not 2 | x)))

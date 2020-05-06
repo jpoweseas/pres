@@ -1,0 +1,1 @@
+forall x(((exists y(2y = x) and 3 | x) or (not exists y(2y = x) and not 3 | x)))

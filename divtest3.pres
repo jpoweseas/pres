@@ -1,0 +1,1 @@
+exists x(((6 | x and 10 | x) and not 15 | x))

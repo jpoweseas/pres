@@ -1,0 +1,1 @@
+forall x(exists y(exists z(((x = y and x = z) and not y = z))))

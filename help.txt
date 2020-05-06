@@ -1,0 +1,9 @@
+Enter :quit/:q to exit, :help/:h for help
+
+The following commands are recognized:
+- [formula]: Runs decision algorithm on [formula]
+- [var] := [formula]: Defines [var] as [formula], which may be used as a
+  subformula in future formulas
+- ![var]: Displays formuala defined by [var]. !all will display all formulas
+- [var] <- [filename]: Defines [var] to be the formula defined in [filename]
+- [var] -> [filename]: Writes the formula defined as [var] to [filename]
