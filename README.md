@@ -46,7 +46,16 @@ pres> X and 2 = 2
 True
 ```
 
-The DSL is case-sensitive: lower case identifiers correspond to function variables, upper case identifiers correspond to named subformulas. For a full list of command-line features, see help.txt, which is also printed when you type :help or :h into the command line.
+The DSL is case-sensitive: lower case identifiers correspond to function variables, upper case identifiers correspond to named subformulas. 
+
+You can also view a named subformula as follows:
+
+```
+pres> !X
+forall x (exists y (x < y))
+```
+
+The CLI also supports reading and writing to files; for a full list of command-line features, see help.txt. This information is also printed when you type :help or :h into the command line.
 
 ## Technical Details:
 
