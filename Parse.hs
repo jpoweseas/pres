@@ -1,5 +1,6 @@
 module Parse (Action (..), Context, ExprVar, parseAction, parseFormula, showContext) where
 
+import Control.Monad (liftM2)
 import Data.Map (Map)
 import qualified Data.Map as Map
 import Data.List (intercalate)
@@ -151,11 +152,12 @@ atom = try comparison <|> div <?> "atom"
 
 term :: Parser Term
 term =
-  (foldl (.+.) emptyTerm <$>
-  sepBy1 (subterm <?> "subterm") (reservedOp "+"))
-  <?> "term"
+  (foldl (.+.) emptyTerm <$> aux) <?> "term"
+  -- sepBy1 (subterm <?> "subterm") (reservedOp "+")) <?> "term"
+  where aux = liftM2 (:) subterm $ many $
+          ((try (reservedOp "+" >> return 1) <|> (reservedOp "-" >> return (-1)))
+          >>= \mult -> (mult .*.) <$> subterm)
 
--- TODO: Incomplete parser here
 subterm :: Parser Term
 subterm = do
   i <- (try integer <|> try (char '-' >> return (-1)) <|> return 1)
